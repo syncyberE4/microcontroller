@@ -1,0 +1,11 @@
+[Unit]
+Description=register microcontroller to database
+After=multi-user.target
+
+[Service]
+Type=idle
+ExecStart=/usr/bin/python3 /etc/register.py
+StandardInput=tty-force
+
+[Install]
+WantedBy=multi-user.target
