@@ -3,8 +3,14 @@
 import sys
 import mysql.connector
 import socket
+import settings
 
-cnx = mysql.connector.connect(user='microcontroller',password='microcontroller',host='192.168.137.4',database='syncy$
+host = settings.ip
+database = settings.database
+login = settings.login
+password = settings.password
+
+cnx = mysql.connector.connect(user=login,password=password,host=host,database=database)
 mycur = cnx.cursor()
 
 def request_raspi(hostname):
