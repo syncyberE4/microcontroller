@@ -3,6 +3,12 @@
 sudo apt-get update -y
 sudo apt-get upgrade -y
 
+sudo apt-get install python3-dev python3-rpi.gpio python3-spidev -y
+sudo apt-get install python-pip python3-git -y
+sudo pip install wiringpi2 -y
+sudo apt-get install git -y
+sudo apt-get install python3-mysql.connector -y
+
 git init
 git clone https://github.com/syncyberE4/microcontroller.git
 
