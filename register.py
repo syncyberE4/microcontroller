@@ -11,9 +11,6 @@ database = settings.database
 login = settings.login
 password = settings.password
 
-os.system("read MAC </sys/class/net/wlan0/address")
-os.system("sudo hostnamectl set-hostname \"${MAC//:}\"")
-
 cnx = mysql.connector.connect(user=login,password=password,host=host,database=database)
 mycur = cnx.cursor()
 
