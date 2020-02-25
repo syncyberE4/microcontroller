@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#all imports needed for this project
+#Alle benodigde imports
 import cgitb ; cgitb.enable()
 import spidev
 import time
@@ -10,6 +10,7 @@ import RPi.GPIO as GPIO
 import signal
 import settings
 
+#Variabele maken van settings.py
 ip = settings.ip
 database = settings.database
 login = settings.login
@@ -114,7 +115,7 @@ def check_sensordata(meetwaarde, activatiewaarde, groter_dan, naam, alarm_id, aa
 		mycur4.execute(sql, val)
 		mycur4.execute(sql2)
 		cnx4.commit()
-#				webUrl.getcode()
+#		webUrl.getcode()
 
 	elif meetwaarde > activatiewaarde and groter_dan == 1 and bevestig == 0:
 		boodschap = "De " + naam + " is te hoog!"
@@ -139,7 +140,6 @@ if __name__ == '__main__':
 	signal.signal(signal.SIGTERM, terminateProcess)
 
 	while True:
-
 		#huide tijd
 		aanmaak_datum = time.strftime('%Y-%m-%d %H:%M:%S')
 
