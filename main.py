@@ -39,11 +39,11 @@ while True:
 		checkprocess = open('/home/pi/output.txt', 'r').read()
 
 		if "0" in str(request[2]) and vatx not in str(checkprocess):
-			os.system("sudo cp /home/pi/vat.py /home/pi/" + vatx + ".py ")
-			os.system("python3 /home/pi/" + vatx + ".py " + str(request[1]) + " " + str(request[3]) + " " + str(request[4]) + " " + str(request[5])+" &")
+			os.system("sudo cp /etc/scripts/vat.py /etc/scripts/" + vatx + ".py ")
+			os.system("python3 /etc/scripts/" + vatx + ".py " + str(request[1]) + " " + str(request[3]) + " " + str(request[4]) + " " + str(request[5])+" &")
 
 		elif "1" in str(request[2]) and "0" in str(checkprocess):
-			os.system("sudo rm -r /home/pi/" + vatx + ".py 2> /dev/null")
+			os.system("sudo rm -r /etc/scripts/" + vatx + ".py 2> /dev/null")
 			os.system("sudo pkill -15 -f " + vatx + ".py &")
 
 	time.sleep(30)
