@@ -68,7 +68,7 @@ def request_sensordata():
 	cnx2 = mysql.connector.connect(user=login,password=password,host=ip,database=database)
 	mycur2 = cnx2.cursor()
 
-	get_sensortype = "SELECT Sensor.sensor_id, Sensortype.naam, Sensortype.kommagetal FROM Sensor LEFT JOIN Sensortype ON Sensor.sensor_type_id=Sensortype.sensor_type_id WHERE Sensor.vat_id =" + vat
+	get_sensortype = "SELECT Sensor.sensor_id, Sensortype.naam, Sensortype.kommagetal FROM Sensor LEFT JOIN Sensortype ON Sensor.sensor_type_id=Sensortype.sensor_type_id WHERE Sensor.vat_id =" + vat " AND beschikbaar = 1"
 	mycur2.execute(get_sensortype)
 	sensordatarequest = mycur2.fetchall()
 	return sensordatarequest
