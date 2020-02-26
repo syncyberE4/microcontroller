@@ -94,7 +94,7 @@ def check_sensordata(meetwaarde, activatiewaarde, groter_dan, naam, alarm_id, aa
 
 	sql = "INSERT INTO Melding (boodschap, gebruiker_id, alarm_id, bevestig, aanmaak_datum) VALUES (%s, %s, %s, %s, %s)"
 	sql2 = "UPDATE Alarm SET bevestig = 1 WHERE alarm_id = " + str(alarm_id)
-#	webUrl = urllib.request.urlopen('http://192.168.137.116:5001/api/Melding/nieuwemelding/' + str(alarm_id))
+	webUrl = urllib.request.urlopen('http://192.168.137.116:5001/api/Melding/nieuwemelding/' + str(alarm_id))
 
 	if naam == "co2" and meetwaarde < activatiewaarde and groter_dan == 1:
 		GPIO.output(warmer, GPIO.HIGH)
@@ -115,7 +115,7 @@ def check_sensordata(meetwaarde, activatiewaarde, groter_dan, naam, alarm_id, aa
 		mycur4.execute(sql, val)
 		mycur4.execute(sql2)
 		cnx4.commit()
-#		webUrl.getcode()
+		webUrl.getcode()
 
 	elif meetwaarde > activatiewaarde and groter_dan == 1 and bevestig == 0:
 		boodschap = "De " + naam + " is te hoog!"
@@ -123,7 +123,7 @@ def check_sensordata(meetwaarde, activatiewaarde, groter_dan, naam, alarm_id, aa
 		mycur4.execute(sql, val)
 		mycur4.execute(sql2)
 		cnx4.commit()
-#		webUrl.getcode()
+		webUrl.getcode()
 
 #sensor data doorsturen naar database
 def send_sensordata(sensor_id,temperatuur,aanmaak_datum):
