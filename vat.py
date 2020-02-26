@@ -94,7 +94,7 @@ def check_sensordata(meetwaarde, activatiewaarde, groter_dan, naam, alarm_id, aa
 
 	sql = "INSERT INTO Melding (boodschap, gebruiker_id, alarm_id, bevestig, aanmaak_datum) VALUES (%s, %s, %s, %s, %s)"
 	sql2 = "UPDATE Alarm SET bevestig = 1 WHERE alarm_id = " + str(alarm_id)
-	webUrl = urllib.request.urlopen('http://192.168.137.116:5001/api/Melding/nieuwemelding/' + str(alarm_id))
+	webUrl = urllib.request.urlopen('http://192.168.137.4:5001/api/Melding/nieuwemelding/' + str(alarm_id))
 
 	if naam == "co2" and meetwaarde < activatiewaarde and groter_dan == 1:
 		GPIO.output(warmer, GPIO.HIGH)
