@@ -16,16 +16,18 @@ git init
 git clone https://github.com/syncyberE4/microcontroller.git
 
 #map maken als plaats voor alle scripts
+sudo rm -r /etc/scripts
 sudo mkdir /etc/scripts
 
 #naar directory gaan die net van github is gehaald
+sudo rm -r ./microcontroller
 cd ./microcontroller
 
 #hostnaam aanpassen naar MAC adress
-sh ./hostname.sh
+sudo bash ./hostname.sh
 
 #alles op de juiste plaats zetten
-sudo mv config.txt /boot/
+sudo cp -f config.txt /boot/config.txt
 sudo mv main.py /etc/scripts/
 sudo mv main.service /lib/systemd/system/
 sudo mv register.py /etc/scripts/
